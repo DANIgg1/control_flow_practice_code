@@ -1,0 +1,68 @@
+print("----------WELCOME TO SAL'S SHIPPING COMPANY----------\n")
+print("""We have three shipping options:
+GROUND SHIPPING
+GROUND SHIPPING PREMUIM
+DRONE SHIPPING
+""")
+
+shipping_option = input("How would you like to ship your package?").upper()
+
+if shipping_option == "GROUND SHIPPING":
+    print(f"""
+Your  {shipping_option}  prices is:
+Weight of Package	                          Price per Pound	  Flat Charge
+2 lb or less	                              $1.50	              $20.00
+Over 2 lb but less than or equal to 6 lb	  $3.00	              $20.00
+Over 6 lb but less than or equal to 10 lb	  $4.00	              $20.00
+Over 10 lb	                                  $4.75	              $20.00
+""")
+elif shipping_option == "GROUND SHIPPING PREMUIM":
+    print("""
+Your  {shipping_option}  prices is:
+Weight of Package	                          Price per Pound	  Flat Charge
+2 lb or less	                              $1.50	              $125.00
+Over 2 lb but less than or equal to 6 lb	  $3.00	              $125.00
+Over 6 lb but less than or equal to 10 lb	  $4.00	              $125.00
+Over 10 lb	                                  $4.75	              $125.00
+""")
+else:
+    print("""
+Your  {shipping_option}  prices is:
+Weight of Package	                          Price per Pound	  Flat Charge
+2 lb or less	                              $4.50	              $0.00
+Over 2 lb but less than or equal to 6 lb	  $9.00	              $0.00
+Over 6 lb but less than or equal to 10 lb	  $12.00	          $0.00
+Over 10 lb	                                  $14.25	          $0.00 
+""")
+
+package_weight = float(input("What is the weight of your package? (lbs): "))
+flat_charge = 20
+premuim_flat_charge = 125
+if shipping_option == "GROUND SHIPPING" and package_weight <= 2:
+    print(f"Your flat charge is ${flat_charge} and your total would be is ${package_weight * 1.50 + flat_charge}")
+elif shipping_option == "GROUND SHIPPING" and 2 < package_weight <= 6:
+    print(f"Your flat charge is ${flat_charge} and your total would be is ${package_weight * 3.00 + flat_charge}")
+elif shipping_option == "GROUND SHIPPING" and 6 < package_weight <= 10:
+    print(f"Your flat charge is ${flat_charge} and your total would be is ${package_weight * 4.00 + flat_charge}")
+elif shipping_option == "GROUND SHIPPING" and package_weight > 10:
+    print(f"Your flat charge is ${flat_charge} and your total would be is ${package_weight * 4.75 + flat_charge}")
+elif shipping_option == "GROUND SHIPPING PREMUIM" and package_weight <= 2:
+    print(f"Your flat charge is ${premuim_flat_charge} and your total would be is ${package_weight * 1.50 + premuim_flat_charge}")
+elif shipping_option == "GROUND SHIPPING PREMUIM" and 2 < package_weight <= 6:
+    print(f"Your flat charge is ${premuim_flat_charge} and your total would be is ${package_weight * 3.00 + premuim_flat_charge}")
+elif shipping_option == "GROUND SHIPPING PREMUIM" and 6 < package_weight <= 10:
+    print(f"Your flat charge is ${premuim_flat_charge} and your total would be is ${package_weight * 4.00 + premuim_flat_charge}")
+elif shipping_option == "GROUND SHIPPING PREMUIM" and package_weight > 10:
+    print(f"Your flat charge is ${premuim_flat_charge} and your total would be is ${package_weight * 4.75 + premuim_flat_charge}")
+elif shipping_option == "DRONE SHIPPING" and package_weight <= 2:
+    print(f"Your total would be is ${package_weight * 4.50}")
+elif shipping_option == "DRONE SHIPPING" and 2 < package_weight <= 6:
+    print(f"Your total would be is ${package_weight * 9.00}")
+elif shipping_option == "DRONE SHIPPING" and 6 < package_weight <= 10:
+    print(f"Your total would be is ${package_weight * 12.00}")
+elif shipping_option == "DRONE SHIPPING" and package_weight > 10:
+    print(f"Your total would be is ${package_weight * 14.25}")
+else:
+    print("Invalid input.")
+
+print("Your payment is being processed. Thank you for choosing Sal's shipping Company!")
